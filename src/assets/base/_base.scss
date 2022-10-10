@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // By default the browser provide a computed value of 16 px for each element, I'd like to set a default value of 10px.
+}
+
+body {
+  box-sizing: border-box;
+}
