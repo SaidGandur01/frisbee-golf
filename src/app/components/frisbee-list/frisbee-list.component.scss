@@ -1,0 +1,103 @@
+@import "../../../assets/abstracts/variables";
+
+.category-container {
+  &__title {
+    background-color: lightblue;
+    font-size: 3rem;
+    color: $color-black;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .cards-container {
+    display: flex;
+    gap: $default-gap;
+    flex-wrap: wrap;
+    background-color: gray;
+    justify-content: flex-start;
+    padding: 2rem;
+
+    .card-container {
+      cursor: pointer;
+      position: relative;
+
+      .img-container {
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: inherit;
+          height: inherit;
+        }
+      }
+
+      .information-container {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,.71);
+        height: 5rem;
+        padding: 0.5rem 1rem;
+        transition: .3s all;
+        justify-content: space-between;
+
+        .information-title {
+          // margin-bottom: 1rem;
+          color: lightblue;
+          margin-bottom: 1rem;
+
+          .data-container {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+
+        .card-description,
+        .card-button {
+          display: none;
+        }
+
+        &:hover {
+          // justify-content: space-between;
+          height: 100%;
+
+          .card-description,
+          .card-button {
+            letter-spacing: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: $color-white;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card-container {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .card-container {
+    width: calc(50% - $default-gap);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .card-container {
+    width: calc(33% - $default-gap);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .card-container {
+    width: calc(25% - $default-gap);
+  }
+}

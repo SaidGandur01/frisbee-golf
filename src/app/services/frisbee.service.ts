@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { frisbeeData } from '@utils/frisbee-data';
 import { Frisbee } from '@utils/frisbee.interface';
+import { frisbeeData } from '@utils/frisbee-data';
+import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class FrisbeeService {
 
-  data: Frisbee[] = frisbeeData;
+  private readonly data: Frisbee[] = frisbeeData;
 
   loadFrisbeeData(): Observable<Frisbee[]> {
     return of(this.data);

@@ -7,13 +7,15 @@ import { FrisbeeComponent } from './components/frisbee/frisbee.component';
 import { FrisbeeListComponent } from './components/frisbee-list/frisbee-list.component';
 import { FrisbeeDetailComponent } from './components/frisbee-detail/frisbee-detail.component';
 import { FormsModule } from '@angular/forms';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FrisbeeComponent,
     FrisbeeListComponent,
-    FrisbeeDetailComponent
+    FrisbeeDetailComponent,
+    NotFoundPageComponent
   ],
   imports: [
     FormsModule,

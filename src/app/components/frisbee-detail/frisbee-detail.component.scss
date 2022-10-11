@@ -1,0 +1,96 @@
+@import "../../../assets/abstracts/variables";
+@import "../../../assets/abstracts/mixins";
+@import "../../../assets/base/utilities";
+
+.details-view-container {
+  min-height: calc(100vh - 6rem);
+  width: 100%;
+  background-color:white;
+
+  .card-container {
+    .information-container {
+      overflow: hidden;
+      height: 60vh;
+    }
+
+    .rate-container {
+      gap: 10px;
+      font-size: 2rem;
+      .checked {
+        color: orange;
+      }    
+    }
+  }
+
+  .btn-container {
+    height: 10vh;
+    text-align: center;
+    align-items: center;
+
+    button {
+      margin: 0 auto;
+      width: 50%;
+    }
+  }
+
+  .row {
+    max-width: $grid-width;
+    margin: 0 auto;
+
+    &:not(:last-child) {
+      margin-bottom: $gutter-vertical;
+    }
+
+    @include clearfix;
+
+    [class^="col-"] {
+      float: left;
+
+      &:not(:last-child) {
+        margin-right: $gutter-horizontal;
+      }
+    }
+
+    .col-1,
+    .col-2 {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    .col-2 {
+      width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    }
+
+    .col-1 {
+      width: calc(
+        2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
+      );
+
+      img {
+        background-size: cover;
+        height: inherit;
+        width: 100%;
+      }
+    }
+
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .information-container { 
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem !important;
+  }
+  .col-1,
+  .col-2 {
+    width: 100% !important;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+}

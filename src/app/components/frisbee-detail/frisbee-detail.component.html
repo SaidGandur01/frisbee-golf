@@ -1,1 +1,53 @@
-<p>frisbee-detail works!</p>
+<div class="details-view-container">
+  <button (click)="navigateBack()">Go back</button>
+  <ng-container *ngIf="isDataAvailable && cardInformation">
+    
+    <div class="card-container">
+      <div class="row information-container">
+        <div class="col-1">
+          <img [src]="cardInformation.image" alt="" class="img-container">
+        </div>
+        <div class="col-2 card-information">
+          <h2>Name:</h2>
+          <h3>{{cardInformation.name}}</h3>
+          <h2>Description:</h2>
+          <h3>{{cardInformation.description}}</h3>
+          <h2>Category:</h2>
+          <h3>{{cardInformation.category}}</h3>
+          <h2>Speed:</h2>
+          <h3>{{cardInformation.speed}}</h3>
+          <h2>Glide:</h2>
+          <h3>{{cardInformation.glide}}</h3>
+          <h2>Turn:</h2>
+          <h3>{{cardInformation.turn}}</h3>
+          <h2>Fade:</h2>
+          <h3>{{cardInformation.fade}}</h3>
+          <h2>Rate:</h2>
+          <div class="rate-container d-flex">
+            <span class="fa fa-star" [ngClass]="{ 'checked': cardInformation.rating - 1 >= 0 }"></span>
+            <span class="fa fa-star" [ngClass]="{ 'checked': cardInformation.rating - 2 >= 0 }"></span>
+            <span class="fa fa-star" [ngClass]="{ 'checked': cardInformation.rating - 3 >= 0 }"></span>
+            <span class="fa fa-star" [ngClass]="{ 'checked': cardInformation.rating - 4 >= 0 }"></span>
+            <span class="fa fa-star" [ngClass]="{ 'checked': cardInformation.rating - 5 >= 0 }"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row btn-container">
+        <div class="col-1">
+          <button>Buy it now!</button>
+        </div>
+        <div class="col-2">
+          <h2>Price:</h2>
+          <h3>{{ cardInformation.price | currency : 'USD' : 'symbol' : '1.0-0' }}</h3>
+        </div>
+      </div>
+    </div>
+
+
+
+  </ng-container>
+  <ng-container *ngIf="!isDataAvailable">
+    <app-not-found-page></app-not-found-page>
+  </ng-container>
+</div>

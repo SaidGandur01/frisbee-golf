@@ -1,1 +1,38 @@
-<p>frisbee-list works!</p>
+<div class="list-container">
+  <div class="category-container" *ngFor="let category of frisbeesCategories">
+    <h2 class="category-container__title">{{category}} category</h2>
+    <div class="cards-container">
+      <ng-container *ngFor="let card of cardsList">
+        <ng-container *ngIf="card.category === category">
+          <div class="card-container" (click)="goToDetailsPage(card.id)">
+            <div class="img-container" *ngIf="card.image">
+              <img *ngIf="card.image" src="{{ card.image }}" alt="card image"/>
+            </div>
+            <div class="information-container">
+              <div class="information-title">
+                <h3>{{card.name}}</h3>
+                <div class="data-container">
+                  <h4>{{ card.speed }} | {{ card.glide }} | {{ card.turn }} | {{ card.fade }} </h4>
+                  <h4>said</h4>
+                </div>
+              </div>
+              <div class="card-description">
+                <h4>{{ card.description }}</h4>
+              </div>
+              <div class="card-button">
+                <div class="data-container">
+                  <button class="btn">
+                    First
+                  </button>
+                  <button class="btn">
+                    Second
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>
