@@ -5,7 +5,7 @@ export const frisbeeData: Frisbee[] = [
     id: 1,
     name: "Aztec",
     description:
-      "The Aztec is a speed 10 driver, flying straight with a little bit of fade at the end. Don't let the speed 10 fool you, the Aztec will bring unexpected distance and accuracy to your game. This disc has a skinnier rim than the big distance drivers, making it more comfortable for most disc golfers. The Aztec is said to be a longer Exodus or Sphinx.",
+      "The Aztec is a speed 10 driver, flying straight with a little bit of fade at the end. Don't let the speed 10 fool you, the Aztec will bring unexpected distance and accuracy to your game. This disc has a skinnier rim than the big distance drivers, making it more comfortable for most disc golfers. The Aztec is said to be a longer Exodus or Sphinx .",
     speed: 10,
     glide: 5,
     turn: -1.2,

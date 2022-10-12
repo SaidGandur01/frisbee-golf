@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FrisbeeService } from '@services/frisbee.service';
-import { frisbeeData } from '@utils/frisbee-data';
 import { Frisbee } from '@utils/frisbee.interface';
 import { Subscription } from 'rxjs';
 
@@ -11,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./frisbee-list.component.scss'],
 })
 export class FrisbeeListComponent implements OnInit, OnDestroy {
-  subscriptions: Subscription[] = [];
+  private subscriptions: Subscription[] = [];
 
   readonly frisbeesCategories: string[] = [
     'distance',
@@ -20,22 +19,20 @@ export class FrisbeeListComponent implements OnInit, OnDestroy {
     'putter',
   ];
 
-  cardsList!: Frisbee[];
+  frisbeeList!: Frisbee[];
 
   constructor(private fs: FrisbeeService, private router: Router) {}
 
   ngOnInit(): void {
     this.subscriptions.push(
       this.fs.loadFrisbeeData().subscribe((response: Frisbee[]) => {
-        this.cardsList = response;
+        this.frisbeeList = response;
       })
     );
-    console.log({ data: this.cardsList });
   }
 
-  goToDetailsPage(cardId: number): void {
-    console.log({ id: cardId });
-    this.router.navigate(['frisbees', cardId]);
+  goToDetailsPage(frisbeeId: number): void {
+    this.router.navigate(['frisbees', frisbeeId]);
   }
 
   ngOnDestroy(): void {

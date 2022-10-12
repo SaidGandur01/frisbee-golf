@@ -1,10 +1,10 @@
-@import '../../../assets/abstracts/variables';
+@import "../../../assets/abstracts/variables";
 
 .not-found-container {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: calc(100vh - 6rem);
+  height: 75vh;
   position: relative;
 
   .img-container {

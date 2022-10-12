@@ -12,11 +12,9 @@ import { Subscription } from 'rxjs';
 export class FrisbeeDetailComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
-  isDataAvailable!: boolean;
-
   cardId!: string;
 
-  cardInformation!: Frisbee | undefined;
+  frissbeInformation!: Frisbee | undefined;
 
   constructor(
     private fs: FrisbeeService,
@@ -32,10 +30,9 @@ export class FrisbeeDetailComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.route.params.subscribe((params: Params): void => {
         this.cardId = params['id'];
+        this.cardId && this.getFrisbeeInformation();
       })
     );
-    this.isDataAvailable = this.cardId !== null && this.cardId !== undefined;
-    this.isDataAvailable && this.getFrisbeeInformation();
   }
 
   navigateBack(): void {
@@ -47,12 +44,14 @@ export class FrisbeeDetailComponent implements OnInit, OnDestroy {
       this.fs
         .loadFrisbee(this.cardId)
         .subscribe((cardInfo: Frisbee | undefined) => {
-          this.cardInformation = cardInfo;
-          this.isDataAvailable = cardInfo !== undefined;
-          // this.isDataAvailable = false;
+          this.frissbeInformation = cardInfo;
         })
     );
-    console.log({cardInfo: this.cardInformation});
+  }
+
+  changeSource(event: Event): void {
+    const target = event.target as HTMLImageElement;
+    target.src = '../../../assets/img/image-not-available.jpeg';
   }
 
   ngOnDestroy(): void {

@@ -1,0 +1,75 @@
+@import "../../../assets/abstracts/variables";
+@import "../../../assets/abstracts/mixins";
+
+.frisbee-container {
+  height: 100%;
+  position: relative;
+  &__image {
+    width: 100%;
+    height: inherit;
+
+    img {
+      width: inherit;
+      height: inherit;
+    }
+  }
+
+  &__information {
+    @include flex-column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.71);
+    height: 6rem;
+    padding: 0.5rem 1rem;
+    transition: 0.3s all ease;
+
+    &--title {
+      font-size: 1.2rem;
+      color: $color-white;
+    }
+
+    &--data {
+      display: flex;
+      justify-content: space-between;
+
+      .rate-container {
+        display: inherit;
+        gap: 1rem;
+        font-size: 1.5rem;
+        .checked {
+          color: $color-tertiary;
+        }
+        .not-checked {
+          color: $color-white;
+        }
+      }
+    }
+
+    &--description {
+      display: none;
+    }
+
+    &:hover {
+      height: 100%;
+    }
+
+    &:hover &--description {
+      display: block;
+      line-height: 2.1rem;
+      padding-top: 1.5rem;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      color: $color-white;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .frisbee-container {
+    &__information--description {
+      font-size: 2rem !important;
+    }
+  }
+}

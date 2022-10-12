@@ -1,1 +1,49 @@
-<p>frisbee works!</p>
+<div class="frisbee-container" (click)="goToDetailsPage(frisbee.id)">
+  <div class="frisbee-container__image" *ngIf="frisbee.image">
+    <img
+      *ngIf="frisbee.image"
+      src="{{ frisbee.image }}"
+      alt="frisbee_image"
+      (error)="changeSource($event)"
+    />
+  </div>
+  <div class="frisbee-container__information">
+    <div class="frisbee-container__information--title">
+      <h3>{{ frisbee.name }}</h3>
+      <div class="frisbee-container__information--data">
+        <h4>
+          {{ frisbee.speed }} | {{ frisbee.glide }} | {{ frisbee.turn }} |
+          {{ frisbee.fade }}
+        </h4>
+        <div class="rate-container">
+          <span
+            class="fa fa-star"
+            [ngClass]="frisbee.rating - 1 >= 0 ? 'checked' : 'not-checked'"
+          ></span>
+          <span
+            class="fa fa-star"
+            [ngClass]="frisbee.rating - 2 >= 0 ? 'checked' : 'not-checked'"
+          ></span>
+          <span
+            class="fa fa-star"
+            [ngClass]="frisbee.rating - 3 >= 0 ? 'checked' : 'not-checked'"
+          ></span>
+          <span
+            class="fa fa-star"
+            [ngClass]="frisbee.rating - 4 >= 0 ? 'checked' : 'not-checked'"
+          ></span>
+          <span
+            class="fa fa-star"
+            [ngClass]="frisbee.rating - 5 >= 0 ? 'checked' : 'not-checked'"
+          ></span>
+        </div>
+      </div>
+    </div>
+    <div class="frisbee-container__information--description">
+      <h4>
+        {{ frisbee.description | slice: 0:150 }}
+        <span *ngIf="frisbee.description.length > 150">...</span>
+      </h4>
+    </div>
+  </div>
+</div>

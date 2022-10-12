@@ -1,53 +1,79 @@
 <div class="details-view-container">
-  <button (click)="navigateBack()">Go back</button>
-  <ng-container *ngIf="isDataAvailable && cardInformation">
-    
-    <div class="card-container">
-      <div class="row information-container">
-        <div class="col-1">
-          <img [src]="cardInformation.image" alt="" class="img-container">
+  <button class="btn btn--white go-back-button" (click)="navigateBack()">
+    <span>&larr;</span> back
+  </button>
+  <ng-container *ngIf="frissbeInformation !== undefined">
+    <div class="frisbee-container">
+      <div class="row frisbee-container__information">
+        <div class="col-1 frisbee-container__information--image">
+          <img
+            (error)="changeSource($event)"
+            [src]="frissbeInformation.image"
+            alt="image__container"
+            class="img-container"
+          />
         </div>
-        <div class="col-2 card-information">
-          <h2>Name:</h2>
-          <h3>{{cardInformation.name}}</h3>
-          <h2>Description:</h2>
-          <h3>{{cardInformation.description}}</h3>
-          <h2>Category:</h2>
-          <h3>{{cardInformation.category}}</h3>
-          <h2>Speed:</h2>
-          <h3>{{cardInformation.speed}}</h3>
-          <h2>Glide:</h2>
-          <h3>{{cardInformation.glide}}</h3>
-          <h2>Turn:</h2>
-          <h3>{{cardInformation.turn}}</h3>
-          <h2>Fade:</h2>
-          <h3>{{cardInformation.fade}}</h3>
-          <h2>Rate:</h2>
-          <div class="rate-container d-flex">
-            <span class="fa fa-star" [ngClass]="{ 'checked': cardInformation.rating - 1 >= 0 }"></span>
-            <span class="fa fa-star" [ngClass]="{ 'checked': cardInformation.rating - 2 >= 0 }"></span>
-            <span class="fa fa-star" [ngClass]="{ 'checked': cardInformation.rating - 3 >= 0 }"></span>
-            <span class="fa fa-star" [ngClass]="{ 'checked': cardInformation.rating - 4 >= 0 }"></span>
-            <span class="fa fa-star" [ngClass]="{ 'checked': cardInformation.rating - 5 >= 0 }"></span>
+        <div class="col-2 frisbee-container__information--description">
+          <div>
+            <h2>Name:</h2>
+            <h3>{{ frissbeInformation.name }}</h3>
+            <h2>Description:</h2>
+            <h3>{{ frissbeInformation.description }}</h3>
+            <h2>Category:</h2>
+            <h3>{{ frissbeInformation.category }}</h3>
+            <h2>Speed:</h2>
+            <h3>{{ frissbeInformation.speed }}</h3>
+            <h2>Glide:</h2>
+            <h3>{{ frissbeInformation.glide }}</h3>
+            <h2>Turn:</h2>
+            <h3>{{ frissbeInformation.turn }}</h3>
+            <h2>Fade:</h2>
+            <h3>{{ frissbeInformation.fade }}</h3>
+            <h2>Rate:</h2>
+            <div class="rate-container">
+              <span
+                class="fa fa-star"
+                [ngClass]="{ checked: frissbeInformation.rating - 1 >= 0 }"
+              ></span>
+              <span
+                class="fa fa-star"
+                [ngClass]="{ checked: frissbeInformation.rating - 2 >= 0 }"
+              ></span>
+              <span
+                class="fa fa-star"
+                [ngClass]="{ checked: frissbeInformation.rating - 3 >= 0 }"
+              ></span>
+              <span
+                class="fa fa-star"
+                [ngClass]="{ checked: frissbeInformation.rating - 4 >= 0 }"
+              ></span>
+              <span
+                class="fa fa-star"
+                [ngClass]="{ checked: frissbeInformation.rating - 5 >= 0 }"
+              ></span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="row btn-container">
+      <div class="row frisbee-container__price">
         <div class="col-1">
-          <button>Buy it now!</button>
+          <button
+            class="btn btn--primary btn--animated frisbee-container__price--button"
+          >
+            Buy it now!
+          </button>
         </div>
-        <div class="col-2">
+        <div class="col-2 frisbee-container__price--description">
           <h2>Price:</h2>
-          <h3>{{ cardInformation.price | currency : 'USD' : 'symbol' : '1.0-0' }}</h3>
+          <h3>
+            {{ frissbeInformation.price | currency: "USD":"symbol":"1.0-0" }}
+          </h3>
         </div>
       </div>
     </div>
-
-
-
   </ng-container>
-  <ng-container *ngIf="!isDataAvailable">
-    <app-not-found-page></app-not-found-page>
+  <ng-container *ngIf="!frissbeInformation">
+    <app-not-found-page class="not-found-page"></app-not-found-page>
   </ng-container>
 </div>

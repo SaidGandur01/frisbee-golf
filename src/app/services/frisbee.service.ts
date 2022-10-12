@@ -4,10 +4,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FrisbeeService {
-
   private readonly data: Frisbee[] = frisbeeData;
 
   loadFrisbeeData(): Observable<Frisbee[]> {

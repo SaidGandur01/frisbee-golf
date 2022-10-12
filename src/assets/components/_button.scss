@@ -1,26 +1,72 @@
-// .btn {
-//   &,
-//   &:link,
-//   &:visited {
-//     text-transform: uppercase;
-//     text-decoration: none;
-//     padding: $default-font-size 4rem;
-//     display: inline-block;
-//     border-radius: 10rem;
-//     transition: all .2s;
-//     position: relative;
-//     font-size: $default-font-size;
+@import '../base/animations';
 
-//     border: none;
-//     cursor: pointer;
-//   }
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: $default-font-size 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: $default-font-size;
 
-//   &--white {
-//     background-color: $color-white;
-//     color: $color-black;
+    border: none;
+    cursor: pointer;
+  }
 
-//     &::after {
-//       background-color: $color-white;
-//     }
-//   }
-// }
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+
+    &::after {
+      transform: scaleX(1.2) scaleY(1.4);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+  }
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-gray-dark;
+    padding: 1rem 3rem !important;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+
+  &--animated {
+    animation: moveInBottom .4s ease-out .65s;
+    animation-fill-mode: backwards;
+  }
+}
