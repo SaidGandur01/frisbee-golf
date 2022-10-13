@@ -1,4 +1,40 @@
-# FrisbeeGolfStorefront
+# Please take into account the following considerations to run the project:
+
+1. Run **npm install** to be able to run the project.
+2. Run ng serve to be able to run the project locally.
+3. The branch where the project was developed is **master.**
+
+## For this test the following characteristics were added and the following assessments were taken into account:
+
+1. Many angular directives have been added to demonstrate extensive handling with them, such as: ngIf, ngFor, ngClass and many more.
+
+2. Google fonts were used.
+
+3. Added aliases in the tslint file so that the files in the imports value are clean and avoid circular dependencies.
+
+4. We work with various css implementations such as: flexbox and grid, the idea is to demonstrate extensive management with the two strategies.
+
+5. A solid project architecture was created, and a professional-level style architecture was also implemented.
+
+6. Unit tests were created the components, in order to demonstrate handling in the field of unit tests.
+
+7. Added animations to improve user experience.
+
+8. A totally responsive project was created, totally designed for multiple screen dimensions.
+
+9. A new 'not-found' component was created in case the user entered an ID that does not exist by url.
+
+10. Different code structures were created in such a way that they were reusable.
+
+11. Interfaces were created to manage the information.
+
+12. Added logic for images in case some source does not return a valid image.
+
+13. Button animations were created to improve user experience.
+
+14. Added library to manage a loader spinner.
+
+## FrisbeeGolfStorefront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
