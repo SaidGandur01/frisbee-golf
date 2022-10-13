@@ -16,7 +16,7 @@
 
 5. A solid project architecture was created, and a professional-level style architecture was also implemented.
 
-6. Unit tests were created the components, in order to demonstrate handling in the field of unit tests.
+6. Unit tests have been created within the components, in order to demonstrate handling in the field of unit tests.
 
 7. Added animations to improve user experience.
 
