@@ -1,8 +1,8 @@
 # Please take into account the following considerations to run the project:
 
-1. Run **npm install** to be able to run the project.
-2. Run ng serve to be able to run the project locally.
-3. The branch where the project was developed is **master.**
+1. The branch where the project was developed is **master.**
+2. Run **npm install** to install the dependencies for this project.
+3. Run ng serve to be able to run the project locally.
 
 ## For this test the following characteristics were added and the following assessments were taken into account:
 
