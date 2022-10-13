@@ -4,7 +4,7 @@
 2. Run **npm install** to install the dependencies for this project.
 3. Run ng serve to be able to run the project locally.
 
-## For this test the following characteristics were added and the following assessments were taken into account:
+## For this test, the following characteristics were added and the following assessments were taken into account:
 
 1. Many angular directives have been added to demonstrate extensive handling with them, such as: ngIf, ngFor, ngClass and many more.
 
