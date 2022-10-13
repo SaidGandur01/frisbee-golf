@@ -13,8 +13,8 @@ export class FrisbeeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  goToDetailsPage(cardId: number): void {
-    this.router.navigate(['frisbees', cardId]);
+  toDetailsPage(frisbeeId: number): void {
+    this.router.navigate(['frisbees', frisbeeId]);
   }
 
   changeSource(event: Event): void {

@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FrisbeeService } from '@services/frisbee.service';
 import { Frisbee } from '@utils/frisbee.interface';
+import { FrisbeeService } from '@services/frisbee.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -21,12 +22,19 @@ export class FrisbeeListComponent implements OnInit, OnDestroy {
 
   frisbeeList!: Frisbee[];
 
-  constructor(private fs: FrisbeeService, private router: Router) {}
+  constructor(
+    private fs: FrisbeeService,
+    private router: Router,
+    private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {
+    this.spinner.show();
     this.subscriptions.push(
       this.fs.loadFrisbeeData().subscribe((response: Frisbee[]) => {
         this.frisbeeList = response;
+        setTimeout(() => {
+          this.spinner.hide();
+        }, 1000);
       })
     );
   }

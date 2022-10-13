@@ -40,6 +40,9 @@
   }
 }
 @media only screen and (max-width: 600px) {
+  .list-container {
+    padding: 0;
+  }
   .frisbee-container {
     width: 100%;
   }
